@@ -1,7 +1,7 @@
 <template>
   <div class="container">
-    <tab-btn :class="{active: isTabActive(0)}" @click="onTabClick(0)">Gallery 1</tab-btn>
-    <tab-btn :class="{active: isTabActive(1)}" @click="onTabClick(1)">Gallery 2</tab-btn>
+    <tab-btn :class="{active: isTabActive(0)}" @click.native="onTabClick(0)">Gallery 1</tab-btn>
+    <tab-btn :class="{active: isTabActive(1)}" @click.native="onTabClick(1)">Gallery 2</tab-btn>
     <div class="tabs_body">
       <div class="tab_body" v-show="isTabActive(0)">
         <gallery-one></gallery-one>

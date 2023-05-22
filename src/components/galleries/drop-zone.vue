@@ -1,15 +1,20 @@
 <template>
   <div>
-    <vue-dropzone ref="myVueDropzone" id="dropzone" :options="dropzoneOptions" :useCustomSlot=true :include-styling="false">
+    <vue-dropzone
+        v-on:vdropzone-thumbnail="allImages()"
+        ref="myVueDropzone"
+        id="dropzone"
+        :options="dropzoneOptions"
+        :useCustomSlot=true
+        :include-styling="false">
       <div class="dropzone-custom-content">
         <h3 class="dropzone-custom-title">Drag and drop to upload content!</h3>
         <div class="subtitle">...or click to select a file from your computer</div>
       </div>
     </vue-dropzone>
-    <button class="block-name" @click="allImages">Browse image</button>
-    <button class="block-name" @click="deleteImages">Cancel</button>
+    <button class="block-btn" @click="deleteImages">Cancel</button>
     <div class="block_images_zone">
-      <draggable v-model="files" group="image" class="flex" >
+      <draggable  group="image" class="flex" >
           <div class="block_card_image" v-for="item in files" :key="item.dataURL">
             <hsc-menu-style-white>
               <hsc-menu-context-menu>
@@ -84,13 +89,13 @@ export default {
   display: flex;
   flex-wrap:wrap;
 }
-.block-name{
+.block-btn{
   background-color: #deccff;
   border: 2px solid #985EFF;
   font-size: 25px;
   text-align: center;
   margin: 25px;
-  width: 350px;
+  width: 750px;
   height: 50px;
 }
 .block_images_zone{
